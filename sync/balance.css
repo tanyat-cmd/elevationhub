@@ -1,0 +1,32 @@
+/* Vertically center each content block in the space above the footer. */
+@media (min-width: 701px) {
+  .slide:has(#flow:not([hidden])) > footer,
+  .slide:has(#finish:not([hidden])) > footer {
+    margin-top: 0;
+  }
+
+  #flow #steps {
+    margin-bottom: 0;
+  }
+
+  #flow .stage-panel {
+    flex: 0 1 clamp(220px, 19cqw, 380px);
+    height: clamp(220px, 19cqw, 380px);
+    min-height: clamp(220px, 19cqw, 380px);
+    margin-block: auto;
+  }
+
+  #finish:not([hidden]) {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  #finish .tips {
+    flex: 0 1 clamp(260px, 42cqw, 440px);
+    width: 100%;
+    min-height: 260px;
+    margin-block: auto;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
+}
