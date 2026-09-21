@@ -1,0 +1,114 @@
+/* Three connected RTL milestones, matching the supplied reference. */
+/* Equal navigation targets only while the course flow is visible. */
+.slide:has(#flow:not([hidden])) footer > button {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12cqw;
+  height: 4cqw;
+  min-height: 44px;
+  padding: 0 1cqw;
+  font-size: 1.18cqw;
+  line-height: 1.4;
+  border-radius: .5cqw;
+}
+@media (max-width: 700px) {
+  .slide:has(#flow:not([hidden])) footer > button {
+    width: calc((100% - 12px) / 2);
+    height: 52px;
+    padding: 0 12px;
+    font-size: 15px;
+    border-radius: 8px;
+  }
+  .slide:has(#flow:not([hidden])) footer { gap: 12px; }
+}
+#steps {
+  --circle-size: clamp(38px, 3.2cqw, 60px);
+  display: flex;
+  width: min(100%, 42cqw);
+  gap: 0;
+  margin: 2cqw auto 1.7cqw;
+  direction: rtl;
+}
+#steps .step {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 5px 0;
+  border: 0;
+  background: transparent;
+  text-align: center;
+  color: #aebbd0;
+  font-size: clamp(14px, 1cqw, 19px);
+}
+#steps .step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: calc(5px + var(--circle-size) / 2);
+  right: calc(50% + var(--circle-size) / 2 + 5px);
+  width: calc(100% - var(--circle-size) - 10px);
+  height: 1px;
+  background: #354664;
+  pointer-events: none;
+}
+#steps .step.done::after { background: #ff96aa; }
+#steps .num {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border: 1px solid #304566;
+  border-radius: 50%;
+  background: #102648;
+  color: #afbdd2;
+  font-size: clamp(16px, 1.25cqw, 24px);
+  font-weight: 700;
+  line-height: 1;
+}
+#steps .active { color: white; font-weight: 700; }
+#steps .active .num {
+  background: #0080ff;
+  border-color: #0080ff;
+  color: white;
+  box-shadow: 0 0 0 5px #0080ff26;
+}
+#steps .done { color: white; }
+#steps .done .num { background: #ff96aa; border-color: #ff96aa; color: #071733; }
+#steps .num svg { width: 55%; height: 55%; stroke-width: 2.3; }
+#steps .step:hover .num { outline: 2px solid #aebbd0; outline-offset: 3px; }
+@media (max-width: 700px) {
+  #steps { --circle-size: 42px; width: min(100%, 380px); margin: 26px auto 24px; }
+}
+
+/* Keep the three-step control legible inside medium-width iframes. */
+@media (min-width: 701px) and (max-width: 1100px) {
+  #steps {
+    --circle-size: 42px;
+    width: min(100%, 420px);
+    margin: 14px auto 13px;
+  }
+  #steps .step {
+    gap: 7px;
+    padding: 3px 0;
+    font-size: 15px;
+  }
+  #steps .step:not(:last-child)::after {
+    top: calc(3px + var(--circle-size) / 2);
+  }
+  #steps .num { font-size: 16px; }
+  .slide:has(#flow:not([hidden])) footer > button {
+    width: 132px;
+    height: 42px;
+    min-height: 42px;
+    padding: 0 16px;
+    font-size: 15px;
+    border-radius: 7px;
+  }
+}
