@@ -129,10 +129,9 @@
   min-height: 2.1cqw;
   margin: .7cqw 0 .65cqw;
   padding: .65cqw .85cqw;
-  border: 1px solid rgba(0,128,255,.42);
-  border-inline-start: 3px solid var(--blue);
-  border-radius: .65cqw;
-  background: rgba(0,128,255,.1);
+  border: 1px solid rgba(255, 150, 170, .3);
+  border-radius: .45cqw;
+  background: rgba(255, 150, 170, .08);
   color: #fff;
   font-size: clamp(13px, .95cqw, 17px);
   line-height: 1.35;
