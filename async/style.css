@@ -1263,3 +1263,52 @@ body {
     display: none;
   }
 }
+
+/* Reassurance belongs to the closing screen, without a separate card. */
+#ready .ready-support-title {
+  color: var(--pink);
+  font-size: clamp(18px, 1.55cqw, 28px);
+  font-weight: 700;
+  line-height: 1.5;
+  margin-top: 12px;
+}
+#ready .ready-support-copy {
+  color: #c4ccda;
+  font-size: clamp(16px, 1.2cqw, 22px);
+  line-height: 1.6;
+  max-width: 58ch;
+  margin-top: 8px;
+}
+#ready .ready-next { margin-top: 24px; }
+@media (max-height: 650px) and (min-width: 701px) {
+  #ready .ready-support-title { margin-top: 8px; }
+  #ready .ready-support-copy { margin-top: 6px; }
+  #ready .ready-next { margin-top: 18px; }
+}
+
+/* A single, non-interactive reassurance badge on the closing screen. */
+#ready .ready-support-title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: 100%;
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 150, 170, .3);
+  border-radius: 9px;
+  background: rgba(255, 150, 170, .08);
+  color: #fff;
+  font-size: clamp(16px, 1.4cqw, 24px);
+}
+#ready .ready-support-title svg {
+  width: 26px;
+  height: 26px;
+  color: var(--pink);
+  flex: 0 0 26px;
+}
+@media (min-width: 701px) and (max-height: 650px) {
+  #ready .ready-support-title { padding: 8px 14px; }
+}
+@media (max-width: 700px) {
+  #ready .ready-support-title { padding: 10px 12px; gap: 8px; }
+}

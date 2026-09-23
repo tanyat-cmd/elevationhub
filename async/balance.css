@@ -30,3 +30,135 @@
     grid-template-rows: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* Compact course flow for short embedded players, including 784 x 560. */
+@media (min-width: 701px) and (max-width: 1100px) and (max-height: 650px) {
+  .slide:has(#flow:not([hidden])) {
+    height: 100dvh;
+    min-height: 100dvh;
+    padding: 14px 32px 12px;
+  }
+  .slide:has(#flow:not([hidden])) > header { margin-bottom: 6px; }
+  #flow .flow-heading > .eyebrow { margin-bottom: 4px; }
+  #flow .flow-heading h1 { margin-bottom: 5px; }
+  #flow .flow-heading > p { font-size: 16px; line-height: 1.4; }
+  #flow .flow-intro-label {
+    margin-top: 6px;
+    padding: 4px 10px;
+    font-size: 14px;
+  }
+  #flow #steps {
+    --circle-size: 32px;
+    margin: 8px auto 0;
+  }
+  #flow #steps .step { gap: 4px; padding: 3px 0; font-size: 14px; }
+  #flow #steps .num { font-size: 16px; }
+  #flow #steps .active .num { box-shadow: 0 0 0 3px #0080ff26; }
+  #flow .stage-panel {
+    flex: 1 0 200px;
+    height: auto;
+    min-height: 200px;
+    margin-block: 8px;
+    padding: 14px 18px;
+  }
+  #flow .stage-panel h2 { margin: 5px 0 7px; }
+  #flow .stage-panel p { font-size: 16px; line-height: 1.5; }
+  .slide:has(#flow:not([hidden])) > footer {
+    margin-top: 0;
+    padding-top: 8px;
+    min-height: 51px;
+  }
+}
+
+/* Original outlined badge, now within each white content card. */
+#flow .stage-intro-label {
+  transform: translateX(2px);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 0 4px;
+  padding: 5px 10px;
+  border: 1px solid rgba(255, 150, 170, .3);
+  border-radius: 7px;
+  background: #1b253d;
+  color: #fff;
+  font-size: clamp(14px, 1.1cqw, 18px);
+  font-weight: 700;
+  line-height: 1.45;
+}
+#flow .stage-intro-label > span {
+  flex: 0 0 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--pink);
+  box-shadow: 0 0 0 4px rgba(255, 150, 170, .12);
+}
+@media (min-width: 701px) and (max-width: 1100px) {
+  #flow .stage-intro-label { font-size: 14px; padding: 4px 8px; }
+}
+
+/* Four habits, followed by a lighter full-width help row. */
+#finish .tips {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  flex: 1 0 210px;
+  min-height: 210px;
+  margin: 18px 0 12px;
+  gap: 12px;
+}
+#finish .tips li,
+#finish .tips li:nth-child(4) {
+  grid-column: auto;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: right;
+  gap: 14px;
+  padding: 16px 20px;
+}
+#finish .tips p {
+  font-size: clamp(16px, 1.35cqw, 24px);
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: right;
+}
+#finish strong { font-weight: 700; }
+#finish .learning-help {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 4px 12px;
+  text-align: right;
+}
+#finish .learning-help .tip-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 32px;
+  color: var(--pink);
+}
+#finish .learning-help svg { width: 28px; height: 28px; }
+#finish .learning-help p {
+  font-size: clamp(16px, 1.1cqw, 20px);
+  line-height: 1.5;
+  color: #c4ccda;
+}
+#finish .learning-help strong { color: #fff; }
+@media (min-width: 701px) and (max-width: 1100px) and (max-height: 650px) {
+  .slide:has(#finish:not([hidden])) {
+    height: 100dvh;
+    min-height: 100dvh;
+    padding: 14px 32px 12px;
+  }
+  .slide:has(#finish:not([hidden])) > header { margin-bottom: 8px; }
+  #finish .tips { margin-top: 14px; min-height: 200px; flex-basis: 200px; }
+  #finish .tips li { padding: 12px 16px; gap: 10px; }
+  .slide:has(#finish:not([hidden])) > footer { margin-top: 0; padding-top: 8px; }
+}
+@media (max-width: 700px) {
+  #finish .tips { grid-template-columns: 1fr; grid-template-rows: auto; }
+  #finish .learning-help { align-items: flex-start; }
+}
